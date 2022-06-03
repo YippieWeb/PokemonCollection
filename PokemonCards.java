@@ -21,6 +21,9 @@ public class PokemonCards
     private double currPr;
     private PokemonCard currCard;
     
+    static final int INCREMENT = 1;
+    static final int LEFTDIST = 120;
+    
     int toLeft = 100; // first printed card distance to left 
 
     /**
@@ -57,7 +60,7 @@ public class PokemonCards
      */
     public void setCardId() {
         // add 1 to the current card id
-        this.currCardId += 1;
+        this.currCardId += INCREMENT;
     }
     
     /**
@@ -123,8 +126,8 @@ public class PokemonCards
                 // show avatar on Canvas
                 cardList.get(cardId).displayContact(toLeft);
                 
-                // increase distance to left by 120
-                toLeft += 120;
+                // increase distance to left by LEFTDIST (120)
+                toLeft += LEFTDIST;
             }
         }
         return matches;
@@ -199,7 +202,7 @@ public class PokemonCards
             cardList.get(cardId).displayContact(toLeft);
                 
             // increase distance to left by 120
-            toLeft += 120;
+            toLeft += LEFTDIST;
         }
     }
     

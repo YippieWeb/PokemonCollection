@@ -23,7 +23,7 @@ public class PokemonCard
     static private final double HEIGHT = 150.0;
     
     // boolean to check if clicked on card
-    private boolean isOnCard;
+    private boolean isOnCard = false;
 
     /**
      * Constructor for objects of class PokemonCard
@@ -111,12 +111,5 @@ public class PokemonCard
             isOnCard = false;
         }
         return isOnCard;
-    }
-    
-    /**
-     * Break a line 
-     */
-    public void lineBreak() {
-        UI.print(System.lineSeparator());
     }
 }

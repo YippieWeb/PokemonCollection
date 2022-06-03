@@ -16,13 +16,13 @@ public class GUI
     private PokemonCards pokemonCards;
     private PokemonCard pokemonCard;
     
-    static final int INCREMENRT = 1;
+    static final int INCREMENT = 1;
     
     // name instances
     String name;
     String nameStriped; // name stripped white spaces
     boolean nmValid = false;
-    boolean exist;
+    boolean exist = false;
     
     // price instances
     String priceS; // price string input
@@ -30,11 +30,12 @@ public class GUI
     double priceD; // price converted to double
     double price; // valid price
     boolean prValid = false;
+    static final int MAXDP = 2;
     
     // instance variables for finding card
     String cardName;
     String cnStriped;
-    boolean cnValid;
+    boolean cnValid = false;
     
     // instance variable for image
     String imgFileName;
@@ -294,10 +295,10 @@ public class GUI
             int index = priceS.indexOf(".");
             
             // check length after the dot
-            int dP = priceS.substring(index + 1).length();
+            int dP = priceS.substring(index + INCREMENT).length();
             
             // prevents more than 2 d.p.
-            if (dP > 2) {
+            if (dP > MAXDP) {
                 return false;
             }
         }
@@ -311,16 +312,12 @@ public class GUI
      * @param y for y position of the mouse click
      */
     public void doMouse(String action, double x, double y) {
-        // clear panes mouse is found clicked on first card
-        try {
+        if (pokemonCard != null) { // ensure pokemon obj has been created
             if (action.equals("clicked")) {
                 if (pokemonCard.onCard(x, y)) {
                     UI.clearPanes();
                 }
             }
-        } 
-        catch (NullPointerException e) {
-            // if clicked before pokemon obj created
         }
     }
     
